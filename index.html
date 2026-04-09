@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laroux — Ask her where to eat.</title>
+  <meta name="description" content="Laroux helps you discover dishes you'll love. Scan any menu and get personalized recommendations powered by your Taste DNA." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --burgundy: #6B1B2A;
+      --burgundy-light: #8a2236;
+      --cream: #F5F0E8;
+      --gold: #B8963E;
+      --charcoal: #1C1614;
+      --muted: #7a6f63;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--charcoal);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 2.5rem;
+      border-bottom: 1px solid rgba(107, 27, 42, 0.12);
+    }
+
+    .nav-wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--burgundy);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--burgundy); }
+
+    /* HERO */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+    }
+
+    .eyebrow {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      line-height: 1.05;
+      color: var(--burgundy);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--charcoal);
+    }
+
+    .hero-sub {
+      font-size: 1.125rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+
+    /* STORE BADGES */
+    .store-row {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .store-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 0.75rem 1.375rem;
+      border: 1.5px solid var(--burgundy);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--burgundy);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: default;
+      opacity: 0.55;
+      transition: opacity 0.2s;
+    }
+
+    .store-badge svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--burgundy);
+      flex-shrink: 0;
+    }
+
+    .store-badge-label {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.2;
+    }
+
+    .store-badge-label span:first-child {
+      font-size: 0.6875rem;
+      font-weight: 400;
+      opacity: 0.75;
+    }
+
+    .coming-soon-note {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    /* DIVIDER */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 4rem auto;
+      opacity: 0.5;
+    }
+
+    /* FEATURES */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2.5rem;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+      text-align: center;
+    }
+
+    .feature-icon {
+      width: 36px;
+      height: 36px;
+      margin: 0 auto 1rem;
+      color: var(--gold);
+    }
+
+    .feature h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.125rem;
+      color: var(--burgundy);
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+    }
+
+    .feature p {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(107, 27, 42, 0.12);
+      padding: 1.75rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-left {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: var(--burgundy);
+      opacity: 0.6;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .footer-links a:hover { color: var(--burgundy); }
+
+    @media (max-width: 540px) {
+      nav { padding: 1.25rem 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      .hero { padding: 3.5rem 1.25rem 3rem; }
+      footer { padding: 1.5rem 1.25rem; flex-direction: column; align-items: flex-start; }
+      .features { padding: 0 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-wordmark">laroux</span>
+    <div class="nav-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Coming soon</p>
+
+      <h1>Ask <span style="color: #1C1614;">La</span><span style="color: var(--burgundy); font-style: italic;">roux.</span><br><span style="font-size: clamp(1.5rem, 4vw, 2.5rem); color: #1C1614; font-style: italic;">She knows where to eat.</span></h1>
+
+      <p class="hero-sub">
+        Scan any menu and get personalized dish recommendations built around your Taste DNA. No guessing. Spend less time on the menu, more time in the moment.
+      </p>
+
+      <div class="store-row">
+        <div class="store-badge">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          <div class="store-badge-label">
+            <span>Download on the</span>
+            <span>App Store</span>
+          </div>
+        </div>
+
+        <div class="store-badge">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.18 23.76c.3.17.64.22.99.14l.09-.05 11.07-6.39-2.39-2.4-9.76 8.7zM.75 1.13C.44 1.45.25 1.95.25 2.6v18.8c0 .65.19 1.15.5 1.47l.08.07 10.53-10.53v-.24L.83 1.06l-.08.07zM20.56 9.96l-2.49-1.44-2.68 2.68 2.68 2.68 2.51-1.45c.72-.41.72-1.06-.02-1.47zM4.17.24L15.24 6.63l-2.39 2.4L3.09.33l.09-.05c.34-.08.69-.03.99.14-.03 0 0-.02.09.14V.24z"/>
+          </svg>
+          <div class="store-badge-label">
+            <span>Get it on</span>
+            <span>Google Play</span>
+          </div>
+        </div>
+      </div>
+      <p class="coming-soon-note">Available soon on iOS and Android</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="features">
+      <div class="feature">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/>
+        </svg>
+        <h3>Scan any menu</h3>
+        <p>Point your camera at a menu or upload a photo to get instant, personalized recommendations for every dish.</p>
+      </div>
+
+      <div class="feature">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        <h3>Your Taste DNA</h3>
+        <p>The more you use Laroux, the better she knows you — flavors, textures, dietary needs, and all.</p>
+      </div>
+
+      <div class="feature">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 8v4l3 3"/>
+        </svg>
+        <h3>No more indecision</h3>
+        <p>Get a confident recommendation in seconds, tailored to you and your tastes.</p>
+      </div>
+
+      <div class="feature">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m10.065 12.493-6.18 1.318a.934.934 0 0 1-1.108-.702l-.537-2.15a1.07 1.07 0 0 1 .691-1.265l13.504-4.44"/><path d="m13.56 11.747 4.332-.924"/><path d="m16 21-3.105-6.21"/><path d="M16.485 5.94a2 2 0 0 1 1.455-2.425l1.09-.272a1 1 0 0 1 1.212.727l1.515 6.06a1 1 0 0 1-.727 1.213l-1.09.272a2 2 0 0 1-2.425-1.455z"/><path d="m6.158 8.633 1.114 4.456"/><path d="m8 21 3.105-6.21"/><path d="M9 3h.01"/>
+        </svg>
+        <h3>Discover your next favorite</h3>
+        <p>Find restaurants that match your Taste DNA before you even sit down.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span class="footer-left">laroux</span>
+    <div class="footer-links">
+      <a href="/cdn-cgi/l/email-protection#bac9cfcacad5c8cefadbc9d1d6dbc8d5cfc294dbcaca"><span class="__cf_email__" data-cfemail="d5a6a0a5a5baa7a195b4a6beb9b4a7baa0adfbb4a5a5">[email&#160;protected]</span></a>      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+    </div>
+  </footer>
+
+
+</body>
+</html>
