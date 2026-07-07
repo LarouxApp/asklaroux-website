@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirming your account — Laroux</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --burgundy: #6B1B2A;
+      --cream: #F5F0E8;
+      --gold: #B8963E;
+      --charcoal: #1C1614;
+      --muted: #7a6f63;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--charcoal);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      color: var(--burgundy);
+      letter-spacing: -0.01em;
+      margin-bottom: 2.5rem;
+    }
+
+    .wordmark em { font-style: italic; color: var(--charcoal); }
+
+    .card {
+      background: #FFFFFF;
+      border: 1px solid rgba(107, 27, 42, 0.12);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--burgundy);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 0.5rem;
+    }
+
+    .open-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: var(--burgundy);
+      color: var(--cream);
+      text-decoration: none;
+      padding: 0.875rem 2rem;
+      border-radius: 10px;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .tagline {
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 2.5rem;
+      opacity: 0.8;
+    }
+
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <div class="wordmark">la<em>roux</em></div>
+
+  <div class="card">
+    <div id="loading">
+      <h1>Confirming your account</h1>
+      <p>Opening Laroux to finish verifying your email.</p>
+    </div>
+
+    <div id="fallback" class="hidden">
+      <h1>Almost there</h1>
+      <p>Open this link on the device where Laroux is installed to finish confirming your account.</p>
+      <p>If the app didn't open automatically, tap below.</p>
+      <a id="open-link" class="open-btn" href="#">Open Laroux</a>
+    </div>
+
+    <div id="error" class="hidden">
+      <h1>Link expired</h1>
+      <p>This confirmation link is missing or has expired. Open the Laroux app and request a new verification email.</p>
+    </div>
+  </div>
+
+  <p class="tagline">Less time on the menu. More time in the moment.</p>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var tokenHash = params.get('token_hash');
+      var type = params.get('type');
+
+      var loading = document.getElementById('loading');
+      var fallback = document.getElementById('fallback');
+      var errorBox = document.getElementById('error');
+      var openLink = document.getElementById('open-link');
+
+      // No token — nothing to do
+      if (!tokenHash || !type) {
+        loading.classList.add('hidden');
+        errorBox.classList.remove('hidden');
+        return;
+      }
+
+      var deepLink = 'laroux://auth/callback?token_hash=' +
+        encodeURIComponent(tokenHash) + '&type=' + encodeURIComponent(type);
+
+      openLink.setAttribute('href', deepLink);
+
+      // Attempt to open the app immediately
+      window.location.href = deepLink;
+
+      // If the app didn't take over within a moment (desktop, or app not
+      // installed), show the manual fallback.
+      setTimeout(function () {
+        loading.classList.add('hidden');
+        fallback.classList.remove('hidden');
+      }, 1500);
+    })();
+  </script>
+
+</body>
+</html>
