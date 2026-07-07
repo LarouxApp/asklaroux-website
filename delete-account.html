@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Your Account — Laroux</title>
+  <meta name="description" content="How to delete your Laroux account and associated data." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --burgundy: #6B1B2A;
+      --cream: #F5F0E8;
+      --gold: #B8963E;
+      --charcoal: #1C1614;
+      --muted: #7a6f63;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--charcoal);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: var(--burgundy); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 2.5rem;
+      border-bottom: 1px solid rgba(107, 27, 42, 0.12);
+    }
+
+    .nav-wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--burgundy);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .nav-links a { text-decoration: none; color: var(--muted); }
+    .nav-links a:hover { color: var(--burgundy); }
+
+    main {
+      flex: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+      width: 100%;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 400;
+      color: var(--burgundy);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .lede {
+      font-size: 1.0625rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.65;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.375rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin: 2.5rem 0 0.875rem;
+    }
+
+    p { margin-bottom: 1rem; color: var(--charcoal); }
+
+    ol, ul { margin: 0 0 1rem 1.25rem; }
+    li { margin-bottom: 0.5rem; }
+
+    .email-box {
+      display: inline-block;
+      margin-top: 0.25rem;
+      background: #FFFFFF;
+      border: 1px solid rgba(107, 27, 42, 0.15);
+      border-radius: 10px;
+      padding: 0.875rem 1.375rem;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.5rem 0 1rem;
+      font-size: 0.9375rem;
+    }
+
+    .data-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      background: rgba(107, 27, 42, 0.06);
+      color: var(--burgundy);
+      font-weight: 500;
+      border-bottom: 1px solid rgba(107, 27, 42, 0.12);
+    }
+
+    .data-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(107, 27, 42, 0.08);
+      color: var(--charcoal);
+      vertical-align: top;
+    }
+
+    .data-table td:first-child { font-weight: 500; width: 40%; }
+
+    footer {
+      border-top: 1px solid rgba(107, 27, 42, 0.12);
+      padding: 1.75rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-left {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: var(--burgundy);
+      opacity: 0.6;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .footer-links a { text-decoration: none; color: var(--muted); }
+    .footer-links a:hover { color: var(--burgundy); }
+
+    @media (max-width: 540px) {
+      nav { padding: 1.25rem 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      main { padding: 2.5rem 1.25rem 4rem; }
+      footer { padding: 1.5rem 1.25rem; flex-direction: column; align-items: flex-start; }
+      .data-table td:first-child { width: 45%; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" style="text-decoration: none;"><span class="nav-wordmark">laroux</span></a>
+    <div class="nav-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Delete your account</h1>
+    <p class="lede">You can delete your Laroux account and associated data at any time. Here's how, and exactly what happens to your data when you do.</p>
+
+    <h2>Delete from within the app</h2>
+    <p>If you have Laroux installed, this is the fastest way:</p>
+    <ol>
+      <li>Open the Laroux app.</li>
+      <li>Go to <strong>Account</strong>.</li>
+      <li>Select <strong>Clear All Data &amp; Sign Out</strong>.</li>
+      <li>Confirm when prompted. Your account and data are removed right away.</li>
+    </ol>
+
+    <h2>Request deletion by email</h2>
+    <p>If you no longer have the app installed, or would rather not use it, email us and we'll process your deletion request:</p>
+    <p><span class="email-box">support@asklaroux.app</span></p>
+    <p>Send the request from the email address associated with your account, or include the phone number on the account, so we can verify and locate it. We'll process verified requests within 30 days and confirm by email once it's done.</p>
+
+    <h2>What gets deleted</h2>
+    <p>When your account is deleted, we permanently remove:</p>
+    <ul>
+      <li>Your account and login credentials (email, phone number, and authentication records).</li>
+      <li>Your profile and Taste DNA preferences.</li>
+      <li>Your saved orders and dish history.</li>
+      <li>Your badge and streak progress.</li>
+      <li>Your share activity.</li>
+    </ul>
+
+    <h2>What is kept, and why</h2>
+    <p>Menu scans and dish data captured during your sessions are retained in anonymized form. Once your account is deleted, this information is permanently disassociated from you — it is no longer linked to your identity, profile, email, or phone number, and cannot be traced back to you. We keep this anonymized menu data so that the community benefits of Laroux (shared menu coverage and recommendations) continue to work for other users.</p>
+    <p>If you have an active paid subscription, limited billing records may be retained where required for legal, tax, or accounting purposes, in line with our <a href="/privacy.html">Privacy Policy</a>. These records are not used to identify you within the app after deletion.</p>
+
+    <h2>Summary</h2>
+    <table class="data-table">
+      <tr>
+        <th>Data</th>
+        <th>What happens</th>
+      </tr>
+      <tr>
+        <td>Account &amp; login (email, phone, auth)</td>
+        <td>Permanently deleted</td>
+      </tr>
+      <tr>
+        <td>Profile &amp; Taste DNA</td>
+        <td>Permanently deleted</td>
+      </tr>
+      <tr>
+        <td>Orders &amp; dish history</td>
+        <td>Permanently deleted</td>
+      </tr>
+      <tr>
+        <td>Badge &amp; streak progress</td>
+        <td>Permanently deleted</td>
+      </tr>
+      <tr>
+        <td>Share activity</td>
+        <td>Permanently deleted</td>
+      </tr>
+      <tr>
+        <td>Menu scan / session data</td>
+        <td>Retained, permanently anonymized (no longer linked to you)</td>
+      </tr>
+      <tr>
+        <td>Billing records (paid plans)</td>
+        <td>Retained only as legally required</td>
+      </tr>
+    </table>
+
+    <p style="margin-top: 2rem; color: var(--muted); font-size: 0.9375rem;">Questions about your data? See our <a href="/privacy.html">Privacy Policy</a> or contact <a href="mailto:support@asklaroux.app">support@asklaroux.app</a>.</p>
+  </main>
+
+  <footer>
+    <span class="footer-left">laroux</span>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="mailto:support@asklaroux.app">support@asklaroux.app</a>
+    </div>
+  </footer>
+
+</body>
+</html>
