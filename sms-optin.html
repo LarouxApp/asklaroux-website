@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMS Opt-In — Laroux</title>
+  <meta name="description" content="How users opt in to receive SMS verification messages from Laroux." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --burgundy: #6B1B2A;
+      --cream: #F5F0E8;
+      --gold: #B8963E;
+      --charcoal: #1C1614;
+      --muted: #7a6f63;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--charcoal);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: var(--burgundy); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 2.5rem;
+      border-bottom: 1px solid rgba(107, 27, 42, 0.12);
+    }
+
+    .nav-wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--burgundy);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .nav-links a { text-decoration: none; color: var(--muted); }
+    .nav-links a:hover { color: var(--burgundy); }
+
+    main {
+      flex: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+      width: 100%;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 400;
+      color: var(--burgundy);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .lede {
+      font-size: 1.0625rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.65;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.375rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin: 2.5rem 0 0.875rem;
+    }
+
+    p { margin-bottom: 1rem; color: var(--charcoal); }
+
+    ol { margin: 0 0 1rem 1.25rem; }
+    li { margin-bottom: 0.5rem; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      margin-top: 1rem;
+    }
+
+    .screenshot-frame {
+      border: 1px solid rgba(107, 27, 42, 0.15);
+      border-radius: 16px;
+      padding: 0.75rem;
+      background: #FFFFFF;
+    }
+
+    .screenshot-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .caption {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 0.75rem;
+    }
+
+    .consent-quote {
+      background: rgba(107, 27, 42, 0.05);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 1rem 1.25rem;
+      font-size: 0.9375rem;
+      color: var(--charcoal);
+      margin: 0.5rem 0 1rem;
+    }
+
+    .msg-example {
+      background: #FFFFFF;
+      border: 1px solid rgba(107, 27, 42, 0.12);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      font-size: 0.9375rem;
+      margin: 0.5rem 0 1rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(107, 27, 42, 0.12);
+      padding: 1.75rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-left {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: var(--burgundy);
+      opacity: 0.6;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .footer-links a { text-decoration: none; color: var(--muted); }
+    .footer-links a:hover { color: var(--burgundy); }
+
+    @media (max-width: 640px) {
+      nav { padding: 1.25rem 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      main { padding: 2.5rem 1.25rem 4rem; }
+      .layout { grid-template-columns: 1fr; gap: 1.5rem; }
+      .screenshot-frame { max-width: 300px; margin: 0 auto; }
+      footer { padding: 1.5rem 1.25rem; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" style="text-decoration: none;"><span class="nav-wordmark">laroux</span></a>
+    <div class="nav-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </nav>
+
+  <main>
+    <h1>SMS opt-in</h1>
+    <p class="lede">This page documents how users consent to receive SMS messages from Laroux, for carrier and messaging-provider review.</p>
+
+    <div class="layout">
+      <div>
+        <div class="screenshot-frame">
+          <img src="/sms-optin.png" alt="Laroux phone login screen showing the SMS consent disclosure above the Send Code button." />
+        </div>
+        <p class="caption">The Laroux phone sign-in screen, showing the consent disclosure.</p>
+      </div>
+
+      <div>
+        <h2 style="margin-top: 0;">How users opt in</h2>
+        <p>Laroux uses SMS solely to deliver one-time verification codes when a user chooses to sign in with a phone number. Opt-in happens inside the app, at the point the user enters their number:</p>
+        <ol>
+          <li>The user opens Laroux to the sign-in screen.</li>
+          <li>They begin typing their own phone number into the sign-in field. Once enough digits are entered for the app to recognize it as a phone number, the screen presents the phone verification option.</li>
+          <li>Before requesting a code, they see the consent disclosure shown in the screenshot, directly below the number field.</li>
+          <li>They tap <strong>Send Code</strong>, which sends a single verification code to their number.</li>
+        </ol>
+
+        <h2>Consent language shown</h2>
+        <p>The following disclosure appears on screen, above the Send Code button, before any message is sent:</p>
+        <div class="consent-quote">
+          By entering your phone number, you agree to receive a one-time verification code via SMS. Message and data rates may apply. View our Privacy Policy and Terms of Service.
+        </div>
+        <p>The Privacy Policy and Terms of Service are linked directly from that disclosure.</p>
+
+        <h2>Message the user receives</h2>
+        <p>Users receive a single verification code per request. No marketing or promotional messages are sent. Example:</p>
+        <div class="msg-example">
+          Your Laroux verification code is 123456. Reply STOP to opt out, HELP for help. Msg &amp; data rates may apply.
+        </div>
+
+        <h2>Opting out</h2>
+        <p>Users can reply STOP at any time to opt out of further messages. Because messages are only sent in direct response to a user-initiated sign-in request, no messages are sent unless the user actively requests a code.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span class="footer-left">laroux</span>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="mailto:support@asklaroux.app">support@asklaroux.app</a>
+    </div>
+  </footer>
+
+</body>
+</html>
